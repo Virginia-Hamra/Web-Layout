@@ -1,0 +1,432 @@
+/*Selector Universal*/
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+body {
+    margin: 0;
+}
+h1 {
+    padding-left: 49px;
+    font-size: 40px;
+    color: whitesmoke;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    height: 80px;
+    background-color: cadetblue;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    /*necesito un position para aplicar la regla z-index (no van pixeles, todo esta en el plano z0)*/
+    position: fixed;/*ojo que todas las etiquetas a las que les pongo position absolute o fixed pierden su dimension, entonces hay que ponerles width 100% de nuevo*/
+    z-index: 1;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    margin-left: 10px;
+    position: relative;
+}
+nav{
+    padding-right: 42px;
+}
+
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+.section-2 {
+    background-color: rgba(119, 33, 100, 0.5);
+}
+
+#central {
+    display: flex;
+}
+
+/*
+Selector Múltiple : 
+
+selector  , selector [,selectores] {}
+*/
+.izq , .der {
+    height: 100px;
+    width: 100px;
+    background-image:url(p2.jpg);
+    background-position: -550px ;
+}
+
+.abajo {
+    display: flex;
+}
+
+/* 
+.der {
+    height: 100px;
+    width: 100px;
+    background-color: antiquewhite;
+} 
+*/
+.izq {
+    margin-right: 15px;
+}
+.der {
+    margin-left: 15px;
+}
+.arriba {
+    width: 230px;
+    height: 120px;
+    background-image:url(p3.png);
+    background-position: -300px;
+    margin-bottom: 15px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s;
+}
+.arriba:hover{
+    box-shadow: 15px 16px 19px 10px rgba(0, 0, 0, 0.42);
+}
+.abajo {
+    display: flex;
+    margin-top: 30px;
+}
+#der {
+    margin-left: 30px;
+    
+}
+#izq {
+    margin-right: 30px;
+   
+}
+
+
+#nosotros-central {
+    display: flex;
+   /* justify-content: space-between;*/
+    width: 700px;
+    justify-content: space-between;
+}
+.iconos{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+.iconos-red {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(173, 60, 60);
+    border-radius: 3px;
+    margin: 0 5px;
+    
+}
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute; /*contenedor es relativo y el contenido(o hijo) absoluto*/
+    transition: background-color 0.3s;
+}
+.overlay, .imagen {
+    width: 200px;
+    height: 200px;
+}
+.imagen {
+    overflow: hidden;
+    position: relative;
+   /* width: 200px;
+    height: 200px; */
+    background-color: gainsboro;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    background-size: cover; /*cover - contain: te contengo toda la imagen en el contenedor pero queda un remanente entonces lo relleno con mas img */
+}
+/*pseudo-clase: estados, x ej cuando alguien pone cursor encima SELECTOR:HOVER {} */
+.imagen:hover .overlay{
+    background-color: transparent;
+}
+
+/*pseudo-elementos: SELECTORES DE ANTES Y DESPUES:
+*selector:before
+*selector:after
+*obligatoriamente tienen que tener regla que se llama  CONTENT -- X EJ Content: "Antes";
+h2:before {
+    content: " "; este elemento no tiene display. OBLIGATORIAMENTE TIENE QUE TENER UN DISPLAY
+    display: block;
+    width: 50px;
+    background-color: red;
+}
+
+*/
+
+
+/*SELECTOR DE POSICION agarrar cual de las etiquetas que es imagen y de esas 3 la primera x ej (de todos los elementos .imagen los hijos...)
+pseudo-selectores: es un selector adicional que se agrega a un selector normal con prefijo :  
+y nos permite ponerle reglas a elementos internos de una etiqueta(pseudo-elementos) o estados de la misma(pseudo-clases)
+selector: nth-child (N) N es un nro y arranca por 1*/
+
+/*SELECTOR DE JERARQUIA: padre hijo {}: para todos los elementos hijos que esten en alguna posicion adentro de un elemento padre. body div{}
+
+padre > hijo {} : para todos los elementos hijos directos de un elemento padre----> Body > div {}
+
+Para todos los elementos con clase . nosotros_columna, solo el primero de todos los hermanos cuyo elemento hijo tenga la clase .imagen
+*/
+#nosotros {
+    margin-top: 25px;
+}
+.nosotros-columnas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 210px;
+}
+.nosotros-columnas:nth-child(1) .imagen {
+    background-image: url(teri.jpg); /*no solo permite img de fondo sino que tamb gradientes)*/
+    background-repeat: no-repeat;
+    background-position: -138px 8px;
+    
+}
+.nosotros-columnas:nth-child(2) .imagen {
+    background-image: url(ellie.jpg); /*no solo permite img de fondo sino que tamb gradientes)*/
+    background-position: center center;
+}
+
+.nosotros-columnas:nth-child(3) .imagen {
+    background-image: url(omar.jpg); /*no solo permite img de fondo sino que tamb gradientes)*/
+    background-position: 10% 7.89cm;
+}
+
+/*background-position: Nos sirve para determinar la posición de arranque de una imagen. Puede ser coordenadas en X y en Y*/
+.iconos-red:nth-child(1) {
+    background-image: url(sprite.png);
+    background-position: -16px 152px;
+}
+.iconos-red:nth-child(2) {
+    background-image: url(sprite.png);
+    background-position: -266px 152px;
+}
+.iconos-red:nth-child(3) {
+    background-image: url(sprite.png);
+    background-position: -687px 152px;
+}
+
+/* Colores: 
+predeterminados: blue- red- cian etc.
+hexadecimales: #XYXYXY #XXX
+-rgb / rgba:  rgba tiene la dif que el a es el alfa 0 es totalmente transparente , 0.5 se va fusionando con el blanco de atras.
+-hsdl*/
+
+#seccion-1{
+    display: flex;
+    background-image: url(bg.jpg);
+    background-size: cover;
+    justify-content: flex-start;
+    
+}
+#blur-box{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 250px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-left: 15px;
+    margin-left: 60px;
+    margin-top: 45px;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-shadow: black;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+
+}
+h2 {
+    color: aqua;
+    font-size: 36px; /* p : 16 px default, h2: 24px default, h1: 32 px de ahí  en adelante para agrandar*/
+}
+
+/*POSICION Y MOVIMIENTO: 
+*Position: valores posibles: STATIC(default) - RELATIVE - ABSOLUTE - FIXED - STICKY
+*Reglas de movimiento: 
+*left: coords desde la izquierda hacia la derecha.
+*right: coordenadas desde la derecha hacia la izq.
+*top: coords desde arriba hacia abajo
+*bottom: coords desde abajo hacia arriba.
+*z-index: Indice de capa en el eje Z.
+*NINGUNA DE LAS REGLAS DE MOV APLICAN SI LA POSICION ESTA STATIC. HAY QUE CAMBIAR SI O SI POSITION.
+
+posición absoluta es relativa a algún padre que encuentre cuya posicion es relativa. (van buscando al padre y si ese padre tiene relative position calcula desde ese mismo, sino sigue buscando padre, va al section?no es relativ, main?no es relat entonces termina en el body)
+los position relative son absolutos(dependen si o si).
+*/
+
+/*pseudo-elemento: nth-child()*/
+
+
+/*
+EJERCICIO:
+1-PONER BEFORE Y AFTER A TODOS LOS LINKS
+2-SU CONTENIDO ES []
+3-COLOR INICIAL TRANSPARENTE*
+4-COLOR FINAL: CURSOR ENCIMA BLANCO*
+
+*/
+.link{
+    text-decoration: none;
+    margin-left: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+.link:before{
+    content: "["; 
+    /*posicion*/
+    position: relative; /*no puedo mover si no tengo una posicion predefinida*/
+    /*mov*/
+    left: 10px;
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 0.3s;
+}
+.link:hover:before{
+    left: -5px;
+    opacity: 1;
+}
+
+.link:after{
+    content: "]";
+    position: relative;
+    right: -5px;
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 0.3s;
+}
+
+.link:hover:after{
+    right: -5px;
+    opacity: 1;
+}
+
+/* TRANSICION:
+    transition: <property> <duration> [delay][timing-function]
+
+    transition-property: el nombre de la propiedad a la cual le queremos dar la transicion o a la palabra "all"
+    , si son muchas propiedades van separadas con coma.
+
+    transition-duration: cuanto va a durar la transición se describe en segundos (s) o milisegundos(ms)
+
+    transition-delay: cuanto va a tardar la transicion en iniciar y de ahi cuenta la duracion en seg o milisegundos.
+
+    transition-timing-function: describe la curva de velocidad que hay entre un punto A y un punto b relativo a la duración. Puede ser ease-in
+    ease-out, ease o cubic-bezier(x1,x2,y1,y2)
+    https://cubic-bezier.com/#.17,.67,.83,.67
+    https://daneden.github.io/animate.css/
+    
+    le va dando dinamismo a las velocidades, podes predeterminar que arranque rapido, luego vaya lento etc.
+
+    MATERIAL DESIGN
+
+    BOX SHADOW: 
+    <dx>
+    <dY> 
+    [blur] 
+    [spread] 
+    [color] 
+    [inset] sombras para adentro, para hacer concavidades.
+
+    La geometria de una caja esta determinada por todos sus espacios, si quiero darle un tamaño a una caja 
+    que se rija solo por su alto y ancho uso box-sizing: content-box / border-box
+*/
+
+/*REVISAR*/
+#drawer {
+    width: 350px;
+    position: fixed;
+    z-index: 2;
+    background-color: black;
+    height: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: -400px;
+    transition: left 0.3s;
+    box-shadow: 16px 0 20px 16px rgba(0, 0, 0, 0.7);
+}
+
+
+/*CLASE QUE VIENE SELECTORES SIBILING
+Y hack abrir y cerrar con un click solo con html y css (en realidad se hace con javascript)*/
+
+#drawer nav {
+    display: flex;
+    flex-direction: column;
+}
+
+#drawer a {
+    color: white;
+}
+
+label {
+    position: fixed;
+    z-index: 3;
+    color: white;
+    top: 28px;
+    left: 12px;
+}
+
+input {
+    display: none;
+}
+
+input:checked~#drawer {
+    left: 0;
+}
+
+/*
+
+RESPONSIVE DESIGN : Es aplicar reglas de media para que el diseño se adapte dependiendo el dispositivo +  mobile first  
+
+@media <dispositivo> [and (condiciones)] {}
+
+dispositivos : all - screen - print - speech
+condiciones : 
+
+
+MEDIA QUERY : aplicale las reglas que están adentro del query si y solo si estoy en un dispositivo que tenga pantalla y como maximo su ancho es de 600px 
+@media screen and (max-width:600px) {
+*/
+
+@media screen and (max-width:600px) {
+    nav {
+        display: none;
+    }
+
+    #nosotros-central{
+        flex-direction: column;
+        align-items: center;
+    }
+    #blur-box {
+        padding-top: 40px;
+        margin-top: 90px;
+    }
+    section {
+        height: auto;
+    }
+    .section-2 {
+        margin-top: 28px;
+        height: 400px;
+    }
+
+    section:nth-child(2), section:nth-child(3){
+        padding: 80px 0;
+    }
+}
+
+@media screen and (min-width:600px) {
+
+    label.material-icons {
+        display: none;
+    }
+}
+footer p {
+    text-align: center;
+}

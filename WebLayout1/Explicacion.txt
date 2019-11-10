@@ -1,0 +1,105 @@
+Existe software de reconocimiento de cada una de estas etiquetas semanticas.
+
+En <link> el atributo type es opcional
+
+Estilos por atributo: "mala practica" , es mejor cargar estilos externos.
+
+Header: contiene titulares, formularios(de navegación de página), logotipos o barras de navegación.
+
+Nav: contenedor de links (<a>)
+<!-- -->
+
+footer: contiene barras de navegación, info de autor, formularios(que redireccionan al autor) y copyright(cuando se creo la pag, tel o permiso, autor).
+
+main: contenido central de la página.
+
+section: sirve para delimitar sub-secciones dentro de una seccion (por ej delimitar secciones en el main). No puede crear una seccion entera. Siempre va a depender de una seccion madre.
+
+article: Delimita una sub-sección autocontenida; es decir que si no estuviera en la pág o si estuviera sola en otra pág, su contenido se tiene que seguir entendiendo.
+
+aside: Delimita una sub-sección de contenido tangencial al contenido central.
+
+user agent: navegador - H1 es por default elemento de block.
+
+https://docs.emmet.io/ se escribe emmet para hacer html. Emmet viene integrado en visual studio code.
+https://docs.emmet.io/cheat-sheet/
+
+flexbox froggy.com juego con 24 niv
+
+
+/*
+styles.css
+
+display: es la manera como se va a comportar la etiqueta en el flujo de HTML. 
+(block, inline, none, flex)
+display flex: FLEXBOX: Es un conjunto de reglas que nos permiten ordenar las etiquetas en la pag, dichas reglas estan separadas en dos grupos.
+Las del flex(padre) y las del contenido(hijos). Para que se active flexbox en css tiene que haber al menos display flex en algún lado.
+
+reglas del padre: 
+
+flex-direction: (dirección del flex, row de izq a der x ej o row reverse) row, row reverse, column, column reverse. Ojo que cuando cambio de row a colum los ejes y x rotan en conjunto.
+justify-content: va a determinar como el flex va -- flex-start, flex-end, center, space-arround, space-between, (space-evently)
+align-items: flex-start, flex-end, center, stretch(por defecto).
+align-content: manera en que un flex va a ordenar content, ()regla para multiples objetos.alinea el contenido con respecto al padre. mismos valores q el anterior:flex-start, flex-end, center, stretch(por defecto)
+flex-wrap: wrap, nowrap,wrap-reverse
+flex-flow: no es una regla sino mas bien un atajo a dos reglas, es una combinatoria entre <direction> <wrap>-- flex-flow: row wrap;
+
+
+
+
+------------------
+sintaxis css
+
+-selector: la manera de poder referirnos a una etiqueta. Luego abro {
+-cuerpo: le sigue a un selector y contiene a las reglas.
+-reglas: conjunto de cambios que le queremos hacer a un selector
+
+conceptos de html
+-id: identificador único de etiqueta. Solo se puede repetir una vez por doc.
+-class: identificador de grupo.
+*/
+
+
+
+
+
+
+
+/*tag name: aplica para todas las etiquetas con ese nombre*/
+h1 {
+    background-color: greenyellow;
+    display: inline; /*acá estoy escribiendo sobre el default que es block, se convertira a un elemento inline*/
+}
+#primer-titulo {
+    background-color: aqua;
+}
+.impar {
+    background-color: blueviolet;
+}
+#flexbox {
+    display: flex;
+    justify-content: center;  /*alineado en eje y eje x*/                   /*flex-direction: row;  --- row-reverse:acá esto me da vuelta en espejo los divs*/
+    align-items: center;      /*alineado en eje y eje x*/ /*esta se usa cuando tenemos una sola linea, osea nowrap*/
+    align-content: center; /*sirve para controlar multilineas,o wrap, si tuviera una sola fila esto lo controlaria align-items*/
+    flex-wrap: wrap;
+    background-color: rgb(144, 111, 175);
+    height: 100px;
+}
+
+/*FLEXBOX: Reglas de los hijos-->
+    order: orden en que se van a visualizar los hijos.
+    align-self:
+    flex-grow:
+    flex-shrink:
+    flex-basis:
+    flex: <grow> <>
+    
+.hijo {
+    background-color: rgb(136, 100, 46);
+    width: 500px;
+}
+#ultimo {
+    order: -1;
+}
+
+*/    
