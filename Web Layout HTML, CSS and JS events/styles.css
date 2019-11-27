@@ -1,0 +1,313 @@
+/* coded by Virginia Hamra 2019*/
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+.material-icons { 
+    font-size: 36px !important;
+    cursor: pointer;
+}
+body {
+    margin: 0;
+}
+h1 {
+    padding-left: 49px;
+    font-size: 40px;
+    color: whitesmoke;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    height: 80px;
+    background-color: cadetblue;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    margin-left: 10px;
+    position: relative;
+}
+nav{
+    padding-right: 42px;
+}
+
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+.section-2 {
+    background-color: rgba(119, 33, 100, 0.5);
+}
+
+#central {
+    display: flex;
+}
+
+.izq , .der {
+    height: 100px;
+    width: 100px;
+    background-image:url(p2.jpg);
+    background-position: -550px ;
+}
+
+.abajo {
+    display: flex;
+}
+
+.izq {
+    margin-right: 15px;
+}
+.der {
+    margin-left: 15px;
+}
+.arriba {
+    width: 230px;
+    height: 120px;
+    background-image:url(p3.png);
+    background-position: -300px;
+    margin-bottom: 15px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s;
+}
+.arriba:hover{
+    box-shadow: 15px 16px 19px 10px rgba(0, 0, 0, 0.42);
+}
+.abajo {
+    display: flex;
+    margin-top: 30px;
+}
+#der {
+    margin-left: 30px;
+    
+}
+#izq {
+    margin-right: 30px;
+   
+}
+
+#nosotros-central {
+    display: flex;
+    width: 700px;
+    justify-content: space-between;
+}
+.iconos{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+.iconos-red {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(173, 60, 60);
+    border-radius: 3px;
+    margin: 0 5px;
+    
+}
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute; 
+    transition: background-color 0.3s;
+}
+.overlay, .imagen {
+    width: 200px;
+    height: 200px;
+}
+.imagen {
+    overflow: hidden;
+    position: relative;
+    background-color: gainsboro;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    background-size: cover; 
+}
+.imagen:hover .overlay{
+    background-color: transparent;
+}
+
+#nosotros {
+    margin-top: 25px;
+}
+.nosotros-columnas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 210px;
+}
+.nosotros-columnas:nth-child(1) .imagen {
+    background-image: url(teri.jpg); 
+    background-repeat: no-repeat;
+    background-position: -138px 8px;
+    
+}
+.nosotros-columnas:nth-child(2) .imagen {
+    background-image: url(ellie.jpg); 
+    background-position: center center;
+}
+
+.nosotros-columnas:nth-child(3) .imagen {
+    background-image: url(omar.jpg); 
+    background-position: 10% 7.89cm;
+}
+
+
+.iconos-red:nth-child(1) {
+    background-image: url(sprite.png);
+    background-position: -16px 152px;
+}
+.iconos-red:nth-child(2) {
+    background-image: url(sprite.png);
+    background-position: -266px 152px;
+}
+.iconos-red:nth-child(3) {
+    background-image: url(sprite.png);
+    background-position: -687px 152px;
+}
+
+
+#seccion-1{
+    display: flex;
+    background-image: url(bg.jpg);
+    background-size: cover;
+    justify-content: flex-start;
+    
+}
+#blur-box{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 250px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-left: 15px;
+    margin-left: 60px;
+    margin-top: 45px;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-shadow: black;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+
+}
+h2 {
+    color: aqua;
+    font-size: 36px; 
+}
+
+.link{
+    text-decoration: none;
+    margin-left: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+.link:before{
+    content: "["; 
+    /*posicion*/
+    position: relative; 
+    /*mov*/
+    left: 10px;
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 0.3s;
+}
+.link:hover:before{
+    left: -5px;
+    opacity: 1;
+}
+
+.link:after{
+    content: "]";
+    position: relative;
+    right: -5px;
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 0.3s;
+}
+
+.link:hover:after{
+    right: -5px;
+    opacity: 1;
+}
+
+
+.drawer {
+    width: 350px;
+    position: fixed;
+    z-index: 2;
+    background-color: black;
+    height: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: -400px;
+    transition: left 0.3s ease;
+    box-shadow: 12px 0 12px rgba(0, 0,0, 0.8);
+}
+
+
+.drawer a {
+    color: white;
+}
+
+
+button {
+    position: fixed;
+    z-index: 3;
+    top: 27px;
+    left: 12px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+.abierto {
+    left: 0;
+}
+.contraste {
+    color: white;
+}
+
+@media screen and (max-width:600px) {
+    nav {
+        display: none;
+    }
+
+    #nosotros-central{
+        flex-direction: column;
+        align-items: center;
+    }
+    #blur-box {
+        padding-top: 40px;
+        margin-top: 90px;
+    }
+    section {
+        height: auto;
+    }
+    .section-2 {
+        margin-top: 28px;
+        height: 400px;
+    }
+
+    section:nth-child(2), section:nth-child(3){
+        padding: 80px 0;
+    }
+}
+
+@media screen and (min-width:600px) {
+
+    button.material-icons {
+        display: none;
+    }
+}
+footer p {
+    text-align: center;
+}
